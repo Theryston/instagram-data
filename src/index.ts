@@ -1,4 +1,5 @@
 import chromium from "chrome-aws-lambda";
+import puppeteer from "puppeteer-core";
 import "dotenv/config";
 
 exports.handler = async (event) => {
@@ -12,10 +13,14 @@ exports.handler = async (event) => {
   return response;
 };
 
-run({ username: process.env.USERNAME_PRIMARY });
-
 export async function run({ username }: { username: string }) {
-  const browser = await chromium.puppeteer.launch();
+  const browser = await puppeteer.launch({
+    args: chromium.args,
+    defaultViewport: chromium.defaultViewport,
+    executablePath: await chromium.executablePath,
+    headless: chromium.headless,
+    ignoreHTTPSErrors: true,
+  });
 
   const page = await browser.newPage();
 
