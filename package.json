@@ -1,0 +1,21 @@
+{
+  "name": "instagram-data",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "zip": "tsc && 7z a -r function.zip ./dist/*  node_modules/"
+  },
+  "author": "Theryston Santos",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^14.14.13",
+    "@types/puppeteer": "^5.4.2",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "chrome-aws-lambda": "^7.0.0",
+    "dotenv": "^16.0.1",
+    "puppeteer-core": "^7.0.3"
+  }
+}
