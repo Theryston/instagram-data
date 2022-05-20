@@ -7,12 +7,7 @@ exports.handler = async (event) => {
     username: event.username,
   });
 
-  const response = {
-    statusCode: 200,
-    userInstagramData: instagramUser,
-  };
-
-  return response;
+  return instagramUser;
 };
 
 export async function run({ username }: { username: string }) {
