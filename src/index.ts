@@ -3,7 +3,9 @@ import puppeteer from "puppeteer-core";
 import "dotenv/config";
 
 exports.handler = async (event) => {
-  const instagramUser = await run(event.username);
+  const instagramUser = await run({
+    username: event.username,
+  });
 
   const response = {
     statusCode: 200,
